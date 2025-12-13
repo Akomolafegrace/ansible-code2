@@ -1,0 +1,17 @@
+---
+- hosts: wind
+  tasks:
+    - name: create a directory
+      win_file:
+        path: C:\Users\Administrator\Desktop\Gabriel
+        state: directory
+
+    - name: download file online
+      win_get_url:
+        dest: C:\Users\Administrator\Desktop\Gabriel\linux-6.18.tar.xz
+        url: https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.tar.xz
+
+    - name: update all packages
+      win_updates:
+        category_names: '*'
+        reboot: true

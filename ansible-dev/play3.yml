@@ -1,0 +1,8 @@
+---
+- hosts: ws
+  become: true
+  gather_facts: true   # skip fact gathering to avoid DNF detection errors
+
+  tasks:
+    - name: Package install
+      raw: sudo yum install -y wget finger docker
