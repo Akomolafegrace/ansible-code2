@@ -13,7 +13,7 @@ pipeline{
             steps{
             sh 'curl -uadmin:APALKYmZCo8dMhFq6cvqwp3mgid -T \
             ansible-${BUILD_ID}.zip \
-            "http://50.19.53.45:8081/:8081/artifactory/ansible/ansible-${BUILD_ID}.zip"'
+            "http://50.19.53.45:8081/artifactory/ansible/ansible-${BUILD_ID}.zip"'
         }
 
         }
