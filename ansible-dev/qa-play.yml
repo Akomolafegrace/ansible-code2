@@ -1,0 +1,25 @@
+---
+- hosts: ws
+  become: yes
+  become_user: root
+  ignore_errors: yes
+  tasks:
+    - name: install Packages
+      raw: sudo yum install -y wget lsof docker passwd unzip java-11-openjdk
+
+    - name: create Directory
+      file:
+        path: /opt/qa/spg
+        state: directory
+        mode: '0775'
+
+    - name: Create log file
+      file:
+        path: /opt/qa/spg/spg.log
+        state: touch
+
+    - name : start and enable Daemon
+      system_service:
+        name: docker
+        state: started
+        enabled: yes
