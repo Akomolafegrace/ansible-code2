@@ -10,11 +10,17 @@
          state: absent
 
     - name: Get the PID
-      shell: lsof
+      shell: lsof -i :8082
+      tags:
+        -a
       register: pid_output
-
+    - name: print pid_output
+      debug:
+        var: pid_output
+      tags:
+        -b
     - name: Kill Running App
-      shell: kill -9 {{ pid_output.stdout }}
+      shell: kill -9 "{{ pid_output.stdout }}"
       when: pid_output.stdout != ''
 
     - name: Download New Artifact
