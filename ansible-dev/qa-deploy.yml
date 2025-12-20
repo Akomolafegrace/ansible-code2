@@ -31,4 +31,4 @@
         url_password: password
 
     - name: Run the App
-      shell: nohup java -jar /opt/qa/spg/*.jar > /opt/qa/spg/spg.log 2>&1 &   
+      shell: nohup java -jar /opt/qa/spg/*.jar > /opt/qa/spg.log 2>&1 &   
